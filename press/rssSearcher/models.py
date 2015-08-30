@@ -13,7 +13,7 @@ class Item(models.Model):
 	title = models.CharField(max_length = 256, unique = True)
 	link = models.URLField()
 	description = models.CharField(max_length = 2000)
-
+	dateTime = models.CharField(max_length = 20, default="00:00 00/00/0000")
 	def __unicode__(self): 
 		return self.title
 	class Meta:

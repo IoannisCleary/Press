@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 {% load static  %}
 {% block title %}Home{% endblock %}
-{% block page_title %}Home{% endblock %}
+{% block page_title %}{{subject }}{% endblock %}
+{% block small_title %}Home{% endblock %}
 {% block extra_head %}
 
 {% endblock %}
 {% block body_block %}
-        <h3 class=>{{subject }}</h3>
 		<!-- Image source : http://publicdomainvectors.org/en/free-clipart/Under-construction-vector-icon/8209.html-->
 		<!--<img src="{% static "images/underConstruction.png" %}" style="width: 20%"alt="Under Construction icon" /> -->
  <form type="get" action="." style="margin: 0">
-
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
     <input  id="search_box" class="form-control"type="text" name="search_box"  placeholder="Search..." >
+	 
+	 </div>
 </form>
  {% if items %}
 <table class="table table-striped">
@@ -19,6 +22,7 @@
         <tr>
             <th >Title</th>
             <th>URL</th>
+			<th>Date and Time</th>
             <th>Description</th>
         </tr>
     </thead>
@@ -26,9 +30,10 @@
    
 	{% for item in items %}
 	  <tr>
-  <td >{{ item.title }}</td>
-	<td ><a href="{{ item.link }}">{{ item.link }}</a></td>
-	<td >{% autoescape off %}{{ item.description }}{% endautoescape %}</td></tr>
+  <td style="width:30%">{{ item.title }}</td>
+	<td style="width:9%"><a href="{{ item.link }}" data-toggle="tooltip" title="{{ item.link }}">Link</a></td>
+   <td style="width:16%">{{ item.dateTime }}</td>
+	<td style="width:45%">{% autoescape off %}{{ item.description }}{% endautoescape %}</td></tr>
 	{% endfor %}
 	   </tbody>
 </table>

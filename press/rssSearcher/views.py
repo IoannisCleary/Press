@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rssSearcher.models import Feed,Item
 import feedparser
+import time
 # feed : http://www.theguardian.com/world/rss
 def home(request):
 	context_dict = {}
@@ -9,9 +10,11 @@ def home(request):
 	subject = source['feed']['title']
 	feed, _ = Feed.objects.get_or_create(subject=subject, link='http://www.theguardian.com/world/rss')
 	for i in range(0,len(source['entries'])):
-		print i
-		print source.entries[i]['title']
-	#	item, flag = Item.objects.get_or_create(feed=feed,title=source.entries[i]['title'], link=source.entries[i]['link'], description=source.entries[i]['description'])
+		try:
+			item = Item.objects.get(feed=feed,title=source.entries[i]['title'])
+		except Item.DoesNotExist:
+			item, flag = Item.objects.get_or_create(feed=feed,title=source.entries[i]['title'], link=source.entries[i]['link'], description=source.entries[i]['description'], dateTime=time.strftime("%H:%M %d/%m/%Y", source.entries[i].date_parsed))
+
 	items = Item.objects.filter(feed = feed)
 	context_dict['items'] = items
 	context_dict['subject'] = subject
