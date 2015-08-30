@@ -1,6 +1,6 @@
 # Press
 RSS Searcher 
--cd into director 'press'
+-cd into directory 'press'
 - run ' python manage.py syncdb'
 -- create superuser
 --- (yes)
