@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% load static  %}
-{% block title %}Home{% endblock %}
-{% block page_title %}Home{% endblock %}
+{% block title %}Results{% endblock %}
+{% block page_title %}Results{% endblock %}
 {% block extra_head %}
 
 {% endblock %}
 {% block body_block %}
-        <h3 class=>{{subject }}</h3>
+        <h3 class=>Showing results for "{{term }}"</h3>
+		</br>
+		<a href="/rss/"type="button" class="btn btn-default">Go back</a>
 		<!-- Image source : http://publicdomainvectors.org/en/free-clipart/Under-construction-vector-icon/8209.html-->
 		<!--<img src="{% static "images/underConstruction.png" %}" style="width: 20%"alt="Under Construction icon" /> -->
- <form type="get" action="." style="margin: 0">
-
-    <input  id="search_box" class="form-control"type="text" name="search_box"  placeholder="Search..." >
-</form>
  {% if items %}
 <table class="table table-striped">
     <thead>
@@ -32,5 +30,7 @@
 	{% endfor %}
 	   </tbody>
 </table>
+ {% else %}
+ No results
  {% endif %}
  {% endblock %}

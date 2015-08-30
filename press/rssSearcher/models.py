@@ -1,5 +1,5 @@
 from django.db import models
-
+import django_filters
 # Create your models here.
 
 class Feed(models.Model):
@@ -18,3 +18,4 @@ class Item(models.Model):
 		return self.title
 	class Meta:
 		verbose_name_plural = "Items"
+		
