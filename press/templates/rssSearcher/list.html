@@ -14,7 +14,7 @@
 		<!-- Image source : http://publicdomainvectors.org/en/free-clipart/Under-construction-vector-icon/8209.html-->
 		<!--<img src="{% static "images/underConstruction.png" %}" style="width: 20%"alt="Under Construction icon" /> -->
  {% if items %}
-<table class="table table-striped">
+<!--<table class="table table-striped">
     <thead>
         <tr>
             <th >Title</th>
@@ -23,18 +23,42 @@
             <th>Description</th>
         </tr>
     </thead>
-    <tbody >
+    <tbody >-->
    
 	{% for item in items %}
-	  <tr>
+	<div class="container-fluid">
+	<div class="panel panel-default">
+  <div class="panel-body">
+   <h3><span class="label label-primary"> &nbsp;&nbsp;&nbsp;&nbsp; {{item.title}}</span>
+	<a class="btn btn-default" role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" aria-controls="collapse{{item.id}}">
+  Expand
+</a></h3>
+<h5><span class="label label-default"> <span class="glyphicon glyphicon-calendar"></span> {{item.dateTime}}</span></h5>
+  </div>
+  
+</div>
+	
+<div class="collapse" id="collapse{{item.id}}">
+  <div class="well">
+   {% autoescape off %}  {{item.description}}{% endautoescape %}
+  </div>
+  <div class="panel panel-default">
+  <div class="panel-body" style="background-color:#E0E0E0 ;">
+  <b>Source :</b> <a href="{{ item.link }}" data-toggle="tooltip" title="{{ item.link }}">{{item.link}}</a>
+  </div>
+</div>
+</div>
+</div>
+</br>
+	 <!--<tr>
 	  <td style="width:30%">{{ item.title }}</td>
 	<td style="width:9%"><a href="{{ item.link }}" data-toggle="tooltip" title="{{ item.link }}">Link</a></td>
    <td style="width:16%">{{ item.dateTime }}</td>
 	<td style="width:45%">{% autoescape off %}{{ item.description }}{% endautoescape %}</td></tr>
-
+-->
 	{% endfor %}
-	   </tbody>
-</table>
+	<!--   </tbody>
+</table>-->
  {% else %}
  No results
  {% endif %}
