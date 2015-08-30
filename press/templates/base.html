@@ -15,12 +15,14 @@
     </head>
 
     <body>
+	<div class="container-fluid">
 		<div class="page-header">
 			<h1>RSS Searcher <small>{% block page_title %}{% endblock %}</small></h1>
 		</div>
-        <div>
+		
+        <div class="container-fluid">
             {% block body_block %}{% endblock %}
         </div>
-
+	</div>
     </body>
 </html>
