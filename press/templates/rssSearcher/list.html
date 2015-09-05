@@ -4,17 +4,23 @@
 {% block page_title %}{{subject}}{% endblock %}
 {% block small_title %}Search Results{% endblock %}
 {% block extra_head %}
+
 {% endblock %}
 {% block body_block %}
        
-		<a href="/rss/"type="button" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span> Close</a>
-		</br>
-		 <h3 class=>Showing results for "{{term }}"</h3>
+		<a href="/rss/"type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Close</a>
+		</br>	</br>
+		<div class="container-fluid">
+		 <h3>Showing results for "{{term }}"</h3>
+		 </div>
 		</br>
 		<!-- Image source : http://publicdomainvectors.org/en/free-clipart/Under-construction-vector-icon/8209.html-->
 		<!--<img src="{% static "images/underConstruction.png" %}" style="width: 20%"alt="Under Construction icon" /> -->
 </br>
+
+
   {% if items %}
+  
 <!--<table class="table table-striped">
     <thead>
         <tr>
@@ -27,9 +33,10 @@
     <tbody >-->
    
 	{% for item in items %}
-	<div class="container-fluid">
-	<div class="panel panel-default" >
-  <div class="panel-body" role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" style="width:100%"aria-controls="collapse{{item.id}}">
+
+	   	<div class="container-fluid notice notice-success"role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" style="width:100%"aria-controls="collapse{{item.id}}">
+
+	
   <div class="media">
   <div class="media-left">
     <a href="{{item.link}}">
@@ -45,17 +52,16 @@
 </h3>
   </div>
 
-</div>
-
 <div class="collapse" id="collapse{{item.id}}">
-  <div class="well">
-   {% autoescape off %}  {{item.description}}{% endautoescape %}
+  <div class="notice" style="background-color:#F8F8F8">
+   {% autoescape off %}  {{item.description}}    </br>{% endautoescape %}
+  
   </div>
-  <div class="panel panel-default">
-  <div class="panel-body" style="background-color:#E0E0E0 ;">
+	 <div class="notice notice-warning">
+ 
+
   <b>Source :</b> <a href="{{ item.link }}" data-toggle="tooltip" title="{{ item.link }}">{{item.link}}</a>
-  </div>
-</div>
+
 </div>
 </div>
 </br>

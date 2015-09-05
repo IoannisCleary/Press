@@ -16,6 +16,7 @@
 	 </div>
 </form>
 </br>
+<div class="container-fluid">
   {% if items %}
 <!--<table class="table table-striped">
     <thead>
@@ -29,9 +30,14 @@
     <tbody >-->
    
 	{% for item in items %}
-	<div class="container-fluid">
-	<div class="panel panel-default" >
-  <div class="panel-body" role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" style="width:100%"aria-controls="collapse{{item.id}}">
+	{% if item.id|divisibleby:"2" %}
+		<div class="container-fluid notice notice-warning"role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" style="width:100%"aria-controls="collapse{{item.id}}">
+
+{% else %}
+	<div class="container-fluid notice notice-info"role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" style="width:100%"aria-controls="collapse{{item.id}}">
+
+{% endif %}
+	
   <div class="media">
   <div class="media-left">
     <a href="{{item.link}}">
@@ -47,17 +53,22 @@
 </h3>
   </div>
 
-</div>
+
 
 <div class="collapse" id="collapse{{item.id}}">
-  <div class="well">
-   {% autoescape off %}  {{item.description}}{% endautoescape %}
+  <div class="notice" style="background-color:#F8F8F8">
+   {% autoescape off %}  {{item.description}}    </br>{% endautoescape %}
+  
   </div>
-  <div class="panel panel-default">
-  <div class="panel-body" style="background-color:#E0E0E0 ;">
+  	{% if item.id|divisibleby:"2" %}
+	 <div class="notice notice-warning">
+  
+{% else %}
+	 <div class="notice notice-info">
+  
+{% endif %}
   <b>Source :</b> <a href="{{ item.link }}" data-toggle="tooltip" title="{{ item.link }}">{{item.link}}</a>
-  </div>
-</div>
+
 </div>
 </div>
 </br>
@@ -73,4 +84,5 @@
  {% else %}
  No entries
  {% endif %}
+ 	 </div>
  {% endblock %}
