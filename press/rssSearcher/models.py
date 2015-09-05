@@ -15,6 +15,7 @@ class Item(models.Model):
 	link = models.URLField()
 	description = models.CharField(max_length = 2000)
 	dateTime = models.CharField(max_length = 20, default="00:00 00/00/0000")
+	image = models.CharField(max_length = 1000, blank=True)
 	def __unicode__(self): 
 		return self.title
 	class Meta:

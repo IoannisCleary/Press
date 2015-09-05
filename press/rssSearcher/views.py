@@ -13,7 +13,11 @@ def home(request):
 		try:
 			item = Item.objects.get(feed=feed,title=source.entries[i]['title'])
 		except Item.DoesNotExist:
-			item, flag = Item.objects.get_or_create(feed=feed,title=source.entries[i]['title'], link=source.entries[i]['link'], description=source.entries[i]['description'], dateTime=time.strftime("%H:%M %d/%m/%Y", source.entries[i].date_parsed))
+			if 'media_content' in source.entries[i]: 
+				mediaContent = source.entries[i].media_content[0]['url']
+				item, flag = Item.objects.get_or_create(feed=feed,title=source.entries[i]['title'], link=source.entries[i]['link'], description=source.entries[i]['description'],image=mediaContent, dateTime=time.strftime("%H:%M %d/%m/%Y", source.entries[i].date_parsed))
+			else:
+				item, flag = Item.objects.get_or_create(feed=feed,title=source.entries[i]['title'], link=source.entries[i]['link'], description=source.entries[i]['description'], dateTime=time.strftime("%H:%M %d/%m/%Y", source.entries[i].date_parsed))
 
 	items = Item.objects.filter(feed = feed)
 	context_dict['items'] = items

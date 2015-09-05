@@ -28,17 +28,25 @@
    
 	{% for item in items %}
 	<div class="container-fluid">
-	<div class="panel panel-default">
-  <div class="panel-body">
-   <h3><span class="label label-primary"> &nbsp;&nbsp;&nbsp;&nbsp; {{item.title}}</span>
-	<a class="btn btn-default" role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" aria-controls="collapse{{item.id}}">
-  Expand
-</a></h3>
-<h5><span class="label label-default"> <span class="glyphicon glyphicon-calendar"></span> {{item.dateTime}}</span></h5>
+	<div class="panel panel-default" >
+  <div class="panel-body" role="button" data-toggle="collapse" href="#collapse{{item.id}}" aria-expanded="false" style="width:100%"aria-controls="collapse{{item.id}}">
+  <div class="media">
+  <div class="media-left">
+    <a href="{{item.link}}">
+      <img class="media-object" src="{{item.image}}" style="height:100px"alt="No image available">
+    </a>
   </div>
-  
+  <div class="media-body">
+    <h4 class="media-heading">{{item.title}}</h4>
+	<h5><span class="label label-default"> <span class="glyphicon glyphicon-calendar"></span> {{item.dateTime}}</span></h5>
+
+  </div>
 </div>
-	
+</h3>
+  </div>
+
+</div>
+
 <div class="collapse" id="collapse{{item.id}}">
   <div class="well">
    {% autoescape off %}  {{item.description}}{% endautoescape %}
