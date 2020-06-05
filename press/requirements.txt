@@ -9,7 +9,7 @@ Codeville==0.8.0
 cryptography==0.8.2
 Cython==0.22
 discid==1.1.0
-Django==1.8.4
+Django==1.11.29
 django-bootstrap3==6.2.2
 django-datatable==0.1.2
 django-filter==0.11.0
