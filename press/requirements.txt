@@ -24,7 +24,7 @@ getmail==4.36.0
 git-review==1.24
 h5py==2.5.0
 htmltmpl==1.22
-Jinja2==2.7.3
+Jinja2==2.11.3
 lxml==3.4.4
 Mako==1.0.1
 marisa==0.0.0
