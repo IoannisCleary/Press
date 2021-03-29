@@ -42,7 +42,7 @@ pyasn1==0.1.6
 pycparser==2.12
 pycrypto==2.6
 pygame===1.9.1release
-Pygments==1.6
+Pygments==2.7.4
 pygobject==3.14.0
 PyOpenGL==3.1.0
 PyOpenGL-accelerate==3.1.0
