@@ -59,7 +59,7 @@ spambayes==1.0.4
 Sphinx==1.2.3
 stgit===0.17.1-dirty
 tailor==0.9.35
-Twisted==12.3.0
+Twisted==22.2.0
 Unidecode==0.4.17
 urlgrabber==3.1.0
 urllib3==1.10.4
