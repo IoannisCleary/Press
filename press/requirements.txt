@@ -33,7 +33,7 @@ mercurial==3.3
 mingc==0.4.7
 mutagen==1.26
 netsnmp-python==1.0a1
-numpy==1.9.2
+numpy==1.22.0
 offlineimap==6.5.5
 paramiko==1.15.2
 Pillow==2.8.1
