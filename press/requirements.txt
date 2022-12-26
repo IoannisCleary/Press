@@ -63,6 +63,6 @@ Twisted==12.3.0
 Unidecode==0.4.17
 urlgrabber==3.1.0
 urllib3==1.10.4
-wheel==0.24.0
+wheel==0.38.1
 zinnia-python==0.0.0
 zope.interface==4.1.2
